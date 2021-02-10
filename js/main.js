@@ -9,22 +9,17 @@ function init() {
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d')
     drawImg()
+    onAddTxt()
     preventDefault()
-
-
 }
 
 function onAddTxt() {
-    var elTxt = document.querySelector('input[name=text]');
-    var txt = elTxt.value;
-    gCurrTxt = txt;
-    changeTxt(gCurrTxt)
-    randerCanvas()
-}
-
-function randerCanvas() {
-    drawImg()
-    
+    document.getElementById('text-input').addEventListener('keyup', function () {
+        var text = document.getElementById('text-input').value;
+        gCurrTxt = text;
+        changeTxt(gCurrTxt)
+        drawImg()
+    });
 }
 
 function preventDefault() {
@@ -33,7 +28,6 @@ function preventDefault() {
         onAddTxt()
     });
 }
-
 
 function drawImg() {
     var image = getImg();
@@ -56,3 +50,10 @@ function drawText(text, x, y) {
     gCtx.strokeText(text, x, y)
 
 }
+
+
+
+
+
+
+
