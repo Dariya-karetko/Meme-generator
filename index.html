@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,12 +10,20 @@
 </head>
 
 <body>
-    
+
+    <div class="canvas-container">
+        <canvas id="canvas" height="400" width="400"></canvas>
+    </div>
+
+    <form id="form">
+        <input type="text" id="text-input" name="text">
+    </form>
 
 
 
-
-<script src="js/main.js"></script>
+    <script src="js/services/storage-service.js"></script>
+    <script src="js/services/meme-service.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
