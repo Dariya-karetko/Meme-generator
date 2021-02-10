@@ -3,23 +3,23 @@
 var gElCanvas;
 var gCtx;
 var gCurrTxt;
+var gCurrImg;
 
 init()
 function init() {
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d')
-    drawImg()
+    renderGallery()
     onAddTxt()
-    preventDefault()
+    preventDefault()  
 }
 
-function onAddTxt() {
-    document.getElementById('text-input').addEventListener('keyup', function () {
-        var text = document.getElementById('text-input').value;
-        gCurrTxt = text;
-        changeTxt(gCurrTxt)
-        drawImg()
-    });
+function renderGallery(){
+    var images = getImages();
+    var strHTMLs = images.map(function (img){
+        return `<img onclick="onChangeImg(${img.id})" src="${img.url}" alt="">`
+    })
+    document.querySelector('.img-content').innerHTML = strHTMLs.join('');
 }
 
 function preventDefault() {
@@ -29,8 +29,24 @@ function preventDefault() {
     });
 }
 
-function drawImg() {
-    var image = getImg();
+function onChangeImg(id){
+    var img = getImg(id)
+    gCurrImg = img;
+    drawImg(gCurrImg.url)
+}
+
+function onAddTxt() {
+    document.getElementById('text-input').addEventListener('keyup', function () {
+        var text = document.getElementById('text-input').value;
+        gCurrTxt = text;
+        changeTxt(gCurrTxt)
+        if (gCurrImg){
+            drawImg(gCurrImg.url) 
+        }
+    });
+}
+
+function drawImg(image) {
     const img = new Image();
     img.src = image;
     img.onload = () => {
@@ -48,7 +64,6 @@ function drawText(text, x, y) {
     gCtx.textAlign = 'center'
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
-
 }
 
 
