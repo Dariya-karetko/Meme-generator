@@ -24,6 +24,7 @@ function onAddTxt() {
 
 function randerCanvas() {
     drawImg()
+    
 }
 
 function preventDefault() {
