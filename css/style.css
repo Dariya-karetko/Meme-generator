@@ -1,9 +1,26 @@
+/* FONTS*/
+
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: Montserrat-thin ;
+    src: url(../fonts/Montserrat-Thin.ttf);
+}
+
+
+
+/* BASICS */
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
+    background-color: #e3e3e3;
 }
 
 canvas{
@@ -12,19 +29,143 @@ canvas{
     border: 1px solid black;
 }
 
+a{
+    text-decoration: none;
+}
+
 form {
     margin-top: 20px;
     text-align: center;
 }
 
-img {
+.img-content img {
     width: 200px;
     height: 200px;
+    margin: auto;
+}
+
+
+.meme-editor{
+    margin-left: 100px;
+}
+
+.img-content{
+    text-align: center;
+}
+
+.gallery-img{
+    padding: 5px;
+}
+
+.canvas-container{
+    margin-left: 100px;
+}
+
+
+
+
+/* HELPERS */
+
+.flex {
+    display: flex;
+}
+
+.flex.align-center {
+    align-items: center;
+    cursor: pointer;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.editor-container{
+    height: 601px;
+}
+
+.flex.space-between{
+    justify-content: space-between;
+}
+
+button{
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+    border: none;
+    cursor: pointer;
 }
 
 .action-btn img{
-    padding: 8px;
-    width: 50px;
-    height: 50px;
-    border: 2px solid black;
+    width: 40;
+    height: 40px;
+    background-color: white;
 }
+
+.header {
+    width: 100%;
+    height: 66px;
+    background-color:#ff7f00;
+}
+
+.logo-header img{
+    height: 22px;
+    width: 133px;
+    margin: 22px 0px 22px 49px;
+}
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav a{
+    font-family: Montserrat-Regular;
+    color: #FFFFFF;
+    font-size: 1.187rem;
+    width: 73px;
+    height: 46px;
+    margin-top: 17px;
+
+}
+
+nav{
+    margin-right: 50px;
+    width: 73px;
+    height: 46px;
+    
+}
+
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color: #ff7f00;
+}
+
+.logo-footer img{
+    width: 133px;
+    height: 22px;
+    margin-top: 78px;
+}
+
+.footer p {
+    font-family: Montserrat-thin;
+    color: #FFFFFF;
+    font-size: 1.187rem;
+}
+
+.footer-content{
+    text-align: center;
+}
+
+.gallery-btn{
+    margin-right: 20px;
+}
+
+.gallery-btn:active{
+    color: black;
+    border-bottom: 5px solid black;
+}
+
+

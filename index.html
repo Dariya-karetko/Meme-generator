@@ -11,34 +11,66 @@
 
 <body>
 
-    <section>
-        <div class="canvas-container">
-            <canvas id="canvas" height="400" width="400"></canvas>
+    <header class="header">
+        <div class="header-content flex space-between">
+            <div class="logo-header"><img src="img/logo/logo.png" alt=""></div>
+
+            <ul class="nav clean-list flex">
+                <li><a href="" class="flex gallery-btn">Gallery</a></li>
+                <li><a href="" class="flex">About</a></li>
+            </ul>
+
         </div>
 
-        <form id="form">
-            <input type="text" id="text-input" name="text">
-        </form>
+    </header>
 
-        <div class="action-btn">
-            <a href="#"><img onclick="onDecrease()" class="decrease-btn" src="icons/decrease font - icon.png" alt=""></a>
-            <a href="#"><img onclick="onIncrease()" class="increase-btn" src="icons/increase font - icon.png" alt=""></a>
-            <a href="#"><img onclick="onChangeLine()" class="up-down-btn" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></a>
+    <div class="main-content">
+
+        <section>
+
+            <div class="canvas-container">
+                <canvas id="canvas" height="400" width="400"></canvas>
+            </div>
+            <div class="meme-editor">
+                <form id="form">
+                    <input type="text" id="text-input" placeholder="add text" name="text">
+                </form>
+
+                <div class="action-btn">
+
+                    <button class="decrease-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('decrease')" src="ICONS/decrease-font-icon.png" alt=""></button>
+                    <button class="increase-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('increase')" src="ICONS/increase-font-icon.png" alt=""></button>
+
+                    <button class="add-line-btn"><img class="cursor-pointer" onclick="onAddLine()" src="ICONS/add.png" alt=""></button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="image-gallery main-container">
+
+            <div class="img-content"></div>
+
+        </section>
+
+    </div>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="logo-footer"><img src="img/logo/logo.png" alt=""></div>
+
+            <p>all rights reserved 2021</p>
         </div>
 
-
-    </section>
-
-
-    <section class="image-gallery">
-
-        <div class="img-content"></div>
-
-    </section>
+    </footer>
 
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/meme-service.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/controller.js"></script>
 </body>
 
 </html>
