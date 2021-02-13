@@ -5,12 +5,17 @@ var gCtx;
 var gCurrImg;
 var gIsAddLine = false;
 
+
 function init() {
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
     onAddTxt()
     preventDefault()
+}
+
+function onGallery() {
+    init()
 }
 
 function preventDefault() {
@@ -66,9 +71,9 @@ function onAddBorder() {
     var txt = currMeme.txt
     var width = currMeme.size * txt.length
     var xStart = x - (width / 2)
-    var yStart = y - height + 6
+    var yStart = y - height + 5
     gCtx.beginPath()
-    gCtx.strokeStyle = 'red'
+    gCtx.strokeStyle = 'black'
     gCtx.rect(xStart, yStart, width, height)
     gCtx.stroke()
 }
@@ -125,4 +130,26 @@ function onSwitchLine() {
     drawImg()
 }
 
+function onDeleteLine() {
+    document.getElementById('text-input').value = '';
+    deleteLine()
+    drawImg()
+}
 
+
+function downloadCanvas(elLink) {
+    randerCanvasForDownload()
+    const data = gElCanvas.toDataURL();
+    elLink.href = data;
+}
+
+function randerCanvasForDownload() {
+    var imgId = getCurrImgIdx()
+    var currImg = getImg(imgId)
+    const img = new Image();
+    img.src = currImg.url;
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
+        renderAlltxt()
+    }
+}

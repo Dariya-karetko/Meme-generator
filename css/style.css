@@ -23,46 +23,24 @@ body {
     background-color: #e3e3e3;
 }
 
-canvas{
+canvas {
     display: block;
     margin: auto;
     border: 1px solid black;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-form {
-    margin-top: 20px;
-    text-align: center;
+button {
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+    border: none;
+    cursor: pointer;
 }
-
-.img-content img {
-    width: 200px;
-    height: 200px;
-    margin: auto;
-}
-
-
-.meme-editor{
-    margin-left: 100px;
-}
-
-.img-content{
-    text-align: center;
-}
-
-.gallery-img{
-    padding: 5px;
-}
-
-.canvas-container{
-    margin-left: 100px;
-}
-
-
-
 
 /* HELPERS */
 
@@ -79,10 +57,6 @@ form {
     cursor: pointer;
 }
 
-.editor-container{
-    height: 601px;
-}
-
 .flex.space-between{
     justify-content: space-between;
 }
@@ -91,24 +65,13 @@ form {
     display: none;
 }
 
-.display-block{
-    display: block;
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
-button{
-    background-color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 20%;
-    border: none;
-    cursor: pointer;
-}
-
-.action-btn img{
-    width: 40;
-    height: 40px;
-    background-color: white;
-}
+/* header */
 
 .header {
     width: 100%;
@@ -120,12 +83,7 @@ button{
     height: 22px;
     width: 133px;
     margin: 22px 0px 22px 49px;
-}
 
-.clean-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
 }
 
 .nav a{
@@ -135,17 +93,83 @@ button{
     width: 73px;
     height: 46px;
     margin-top: 17px;
+    margin-right: 20px;
 
 }
 
-nav{
-    margin-right: 50px;
-    width: 73px;
-    height: 46px;
+
+.nav a:hover{
+    color: black;
+    border-bottom: 5px solid black;
+}
+
+/* gallery */
+
+.gallery-img{
+    padding: 5px;
+    width: 200px;
+    height: 200px;
+}
+
+.img-content{
+    text-align: center;
+}
+
+/* editor */
+
+.canvas-container{
+    margin-left: 51px;
+}
+
+.editor{
+    margin-top: 26px;
+    margin-bottom: 26px;
+}
+
+#text-input{
+    width: 374px;
+    height: 61px;
+    font-size: 2rem;
     
 }
 
-.footer{
+.meme-editor{
+    margin-left: 100px;
+}
+
+.action-btn img{
+    width: 40;
+    height: 40px;
+    background-color: white;
+}
+
+.action-btn{
+    justify-content: center;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 70px 70px 70px;
+    grid-template-rows: 80px 80px 80px;
+}
+
+.download {
+    width: 120px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: #ff7f00;
+}
+
+.downloadLink {
+    font-family: Montserrat-Regular ;
+    font-size: 1.25rem;
+    color: white;
+    display:inline-block;
+    padding-top: 16px;
+    padding-left: 9px;
+}
+
+
+
+.footer {
     width: 100%;
     height: 150px;
     background-color: #ff7f00;
@@ -154,9 +178,8 @@ nav{
 .logo-footer img{
     width: 133px;
     height: 22px;
-    margin-top: 78px;
+    margin-top: 40px;
 }
-
 
 .footer p {
     font-family: Montserrat-thin;
@@ -168,18 +191,8 @@ nav{
     text-align: center;
 }
 
-.gallery-btn{
-    margin-right: 20px;
-}
 
-.gallery-btn:active{
-    color: black;
-    border-bottom: 5px solid black;
-}
 
-.image-gallery{
-    display: flex;
-    height: 100vw;
-}
+
 
 

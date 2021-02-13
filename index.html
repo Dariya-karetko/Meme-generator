@@ -16,21 +16,21 @@
             <div class="logo-header"><img src="img/logo/logo.png" alt=""></div>
 
             <ul class="nav clean-list flex">
-                <li><a href="" class="flex gallery-btn">Gallery</a></li>
+                <li><a onclick="onGallery()" href="" class="flex">Gallery</a></li>
                 <li><a href="" class="flex">About</a></li>
             </ul>
 
         </div>
-
     </header>
 
     <div class="main-content">
 
-        <section class="editor display-none">
-
+        <section class="editor display-none flex">
+            
             <div class="canvas-container">
-                <canvas id="canvas" height="400" width="400"></canvas>
+                <canvas id="canvas" height="500" width="500"></canvas>
             </div>
+
             <div class="meme-editor">
                 <form id="form">
                     <input type="text" id="text-input" placeholder="add text" name="text">
@@ -38,10 +38,14 @@
 
                 <div class="action-btn">
 
+                    <button class="switch-btn"><img class="cursor-pointer" onclick="onSwitchLine()" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button class="add-line-btn"><img class="cursor-pointer" onclick="onAddLine()" src="ICONS/add.png" alt=""></button>
+                    <button class="delete-btn"><img class="cursor-pointer" onclick="onDeleteLine()" src="ICONS/trash.png" alt=""></button>
                     <button class="decrease-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('decrease')" src="ICONS/decrease-font-icon.png" alt=""></button>
                     <button class="increase-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('increase')" src="ICONS/increase-font-icon.png" alt=""></button>
-                    <button class="add-line-btn"><img class="cursor-pointer" onclick="onAddLine()" src="ICONS/add.png" alt=""></button>
-                    <button class="add-line-btn"><img class="cursor-pointer" onclick="onSwitchLine()" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <div class="download">
+                        <a class="downloadLink" href="#" onclick="downloadCanvas(this)" download="Meme.jpg">Download</a>
+                    </div>
 
                 </div>
 
@@ -70,8 +74,8 @@
 
     </footer>
 
-    <script src="js/services/storage-service.js"></script>
-    <script src="js/services/meme-service.js"></script>
+
+    <script src="js/meme-service.js"></script>
     <script src="js/controller.js"></script>
 </body>
 

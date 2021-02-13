@@ -25,8 +25,8 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
-        { txt: '', size: 45, align: 'center', color: 'white', x: 200, y: 45 },
-        { txt: '', size: 45, align: 'center', color: 'white', x: 200, y: 355 }
+        { txt: '', size: 45, align: 'center', color: 'white', x: 250, y: 70 },
+        { txt: '', size: 45, align: 'center', color: 'white', x: 250, y: 455 }
     ]
 }
 
@@ -36,7 +36,12 @@ function getImages() {
 
 function getImg(id) {
     var img = gImgs.find(img => img.id === id)
+    gMeme.selectedImgId = id;
     return img
+}
+
+function getCurrImgIdx(){
+    return gMeme.selectedImgId;
 }
 
 function getCurrLineIdx() {
@@ -77,4 +82,10 @@ function switchLine(lineIdx) {
     }
     return gMeme.lines[gMeme.selectedLineIdx]
 }
+
+function deleteLine(){
+    gMeme.lines[gMeme.selectedLineIdx].txt = '';
+}
+
+
 
