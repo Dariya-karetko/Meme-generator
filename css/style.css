@@ -87,6 +87,14 @@ form {
     justify-content: space-between;
 }
 
+.display-none{
+    display: none;
+}
+
+.display-block{
+    display: block;
+}
+
 button{
     background-color: white;
     width: 60px;
@@ -139,7 +147,7 @@ nav{
 
 .footer{
     width: 100%;
-    height: 200px;
+    height: 150px;
     background-color: #ff7f00;
 }
 
@@ -148,6 +156,7 @@ nav{
     height: 22px;
     margin-top: 78px;
 }
+
 
 .footer p {
     font-family: Montserrat-thin;
@@ -166,6 +175,11 @@ nav{
 .gallery-btn:active{
     color: black;
     border-bottom: 5px solid black;
+}
+
+.image-gallery{
+    display: flex;
+    height: 100vw;
 }
 
 

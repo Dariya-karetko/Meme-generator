@@ -9,7 +9,7 @@
     <title>Meme Generator</title>
 </head>
 
-<body>
+<body onload="init()">
 
     <header class="header">
         <div class="header-content flex space-between">
@@ -26,7 +26,7 @@
 
     <div class="main-content">
 
-        <section>
+        <section class="editor display-none">
 
             <div class="canvas-container">
                 <canvas id="canvas" height="400" width="400"></canvas>
@@ -40,8 +40,8 @@
 
                     <button class="decrease-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('decrease')" src="ICONS/decrease-font-icon.png" alt=""></button>
                     <button class="increase-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('increase')" src="ICONS/increase-font-icon.png" alt=""></button>
-
                     <button class="add-line-btn"><img class="cursor-pointer" onclick="onAddLine()" src="ICONS/add.png" alt=""></button>
+                    <button class="add-line-btn"><img class="cursor-pointer" onclick="onSwitchLine()" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
 
                 </div>
 
@@ -53,6 +53,8 @@
         <section class="image-gallery main-container">
 
             <div class="img-content"></div>
+
+            
 
         </section>
 

@@ -2,16 +2,9 @@
 
 var gElCanvas;
 var gCtx;
-var gCurrTxt;
 var gCurrImg;
-var gCurrTxtSize;
-
 var gIsAddLine = false;
-var gLineIdx = 0;
 
-
-
-init()
 function init() {
     gElCanvas = document.getElementById('canvas');
     gCtx = gElCanvas.getContext('2d')
@@ -20,32 +13,10 @@ function init() {
     preventDefault()
 }
 
-function onAddLine() {
-    // document.getElementById('text-input').value = '';
-    var textVal = document.getElementById('text-input').value
-    addLine(textVal)
-    if (!gIsAddLine) {
-        gIsAddLine = true;
-        gLineIdx = 1;
-    } else {
-        gIsAddLine = false
-        gLineIdx = 0;
-    }
-    renderAlltxt()
-}
-
-function onDecreaseIncrease(val) {
-    if (val === 'decrease') {
-        gCurrTxtSize--
-        changeTxtSize(gCurrTxtSize)
-    } else {
-        gCurrTxtSize++
-        changeTxtSize(gCurrTxtSize)
-    }
-    if (gCurrImg) {
-        drawImg()
-    }
-
+function preventDefault() {
+    document.getElementById('form').addEventListener("submit", function (e) {
+        e.preventDefault();
+    });
 }
 
 function renderGallery() {
@@ -56,13 +27,9 @@ function renderGallery() {
     document.querySelector('.img-content').innerHTML = strHTMLs.join('');
 }
 
-function preventDefault() {
-    document.getElementById('form').addEventListener("submit", function (e) {
-        e.preventDefault();
-    });
-}
-
 function onChangeImg(id) {
+    document.querySelector('.editor').classList.remove('display-none')
+    document.querySelector('.image-gallery').style.display = 'none'
     var img = getImg(id)
     gCurrImg = img;
     drawImg()
@@ -71,7 +38,8 @@ function onChangeImg(id) {
 function onAddTxt() {
     document.getElementById('text-input').addEventListener('keyup', function () {
         var text = document.getElementById('text-input').value;
-        changeTxt(text, gLineIdx)
+        var lineIdx = getCurrLineIdx()
+        changeTxt(text, lineIdx)
         if (gCurrImg) {
             drawImg()
         }
@@ -83,22 +51,78 @@ function drawImg() {
     img.src = gCurrImg.url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
-        var meme = getMeme(gLineIdx)
-        renderAlltxt(meme.txt, meme.x, meme.y)
+        onAddBorder()
+        renderAlltxt()
+
     }
+}
+
+function onAddBorder() {
+    var currMeme = getCurrMeme()
+    if (currMeme.txt === '') return
+    var x = currMeme.x
+    var y = currMeme.y
+    var height = currMeme.size
+    var txt = currMeme.txt
+    var width = currMeme.size * txt.length
+    var xStart = x - (width / 2)
+    var yStart = y - height + 6
+    gCtx.beginPath()
+    gCtx.strokeStyle = 'red'
+    gCtx.rect(xStart, yStart, width, height)
+    gCtx.stroke()
 }
 
 function renderAlltxt() {
     var memes = getAllMemes()
-    memes.forEach(function(meme) {
-        gCurrTxtSize = meme.size;
+    memes.forEach(function (meme) {
         gCtx.lineWidth = 2
         gCtx.strokeStyle = 'black'
         gCtx.fillStyle = `${meme.color}`
-        gCtx.font = `${gCurrTxtSize}px Impact`
+        gCtx.font = `${meme.size}px Impact`
         gCtx.textAlign = `${meme.align}`
         gCtx.fillText(meme.txt, meme.x, meme.y)
         gCtx.strokeText(meme.txt, meme.x, meme.y)
     })
 }
+
+function onDecreaseIncrease(val) {
+    var currIdx = getCurrLineIdx()
+    var currSize = getCurrSize(currIdx)
+    if (val === 'decrease') {
+        currSize--
+        changeTxtSize(currSize, currIdx)
+    } else {
+        currSize++
+        changeTxtSize(currSize, currIdx)
+    }
+    if (gCurrImg) {
+        drawImg()
+    }
+}
+
+function onAddLine() {
+    document.getElementById('text-input').value = '';
+    var textVal = document.getElementById('text-input').value
+
+    if (!gIsAddLine) {
+        gIsAddLine = true;
+        addLine(textVal)
+    } else {
+        gIsAddLine = false
+        document.getElementById('text-input').value = textVal;
+    }
+    renderAlltxt()
+}
+
+function onSwitchLine() {
+    var currLineIdx;
+    if (!gCurrImg) return
+    currLineIdx = getCurrLineIdx()
+    var selectedLine = switchLine(currLineIdx);
+    currLineIdx = getCurrLineIdx()
+    document.getElementById('text-input').value = selectedLine.txt
+    drawImg()
+}
+
 
