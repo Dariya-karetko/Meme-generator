@@ -19,7 +19,7 @@
 
             <ul class="main-nav clean-list flex">
                 <li><a onclick="onGallery()" href="" class="flex">Gallery</a></li>
-                <li><a href="" class="flex">About</a></li>
+                <li><a href="#me" class="flex">About</a></li>
             </ul>
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
         </div>
@@ -29,7 +29,7 @@
     <div class="main-content">
 
         <div class="editor display-none flex">
-            
+
             <div class="canvas-container">
                 <canvas id="canvas" height="450" width="450"></canvas>
             </div>
@@ -41,13 +41,19 @@
 
                 <div class="action-btn">
 
-                    <button class="switch-btn"><img class="cursor-pointer" onclick="onSwitchLine()" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                    <button class="add-line-btn"><img class="cursor-pointer" onclick="onAddLine()" src="ICONS/add.png" alt=""></button>
-                    <button class="delete-btn"><img class="cursor-pointer" onclick="onDeleteLine()" src="ICONS/trash.png" alt=""></button>
-                    <button class="decrease-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('decrease')" src="ICONS/decrease-font-icon.png" alt=""></button>
-                    <button class="increase-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('increase')" src="ICONS/increase-font-icon.png" alt=""></button>
+                    <button class="switch-btn"><img class="cursor-pointer" onclick="onSwitchLine()"
+                            src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button class="add-line-btn"><img class="cursor-pointer" onclick="onAddLine()" src="ICONS/add.png"
+                            alt=""></button>
+                    <button class="delete-btn"><img class="cursor-pointer" onclick="onDeleteLine()"
+                            src="ICONS/trash.png" alt=""></button>
+                    <button class="decrease-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('decrease')"
+                            src="ICONS/decrease-font-icon.png" alt=""></button>
+                    <button class="increase-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('increase')"
+                            src="ICONS/increase-font-icon.png" alt=""></button>
                     <div class="download">
-                        <a class="downloadLink" href="#" onclick="onDownloadCanvas(this)" download="Meme.jpg">Download</a>
+                        <a class="downloadLink" href="#" onclick="onDownloadCanvas(this)"
+                            download="Meme.jpg">Download</a>
                     </div>
 
                 </div>
@@ -59,6 +65,25 @@
 
         <div class="image-gallery main-container">
             <div class="img-content"></div>
+        </div>
+
+        <div id="me" class="about-me-container">
+
+            <div class="about-me flex">
+
+                <img class="my-img" src="img/me/me.jpg" alt="">
+
+                <div class="my-details">
+
+                    <h1>Dariya Karetko</h1>
+
+                    <p>Hi everyone, my name is Daria Karetko, I'm 27 years old from Rishon Lezion. <br>
+                        Welcome to my meme generator</p>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
