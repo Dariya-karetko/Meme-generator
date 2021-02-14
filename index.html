@@ -11,24 +11,27 @@
 
 <body onload="init()">
 
+    <div class="main-screen" onclick="toggleMenu()"></div>
+
     <header class="header">
         <div class="header-content flex space-between">
             <div class="logo-header"><img src="img/logo/logo.png" alt=""></div>
 
-            <ul class="nav clean-list flex">
+            <ul class="main-nav clean-list flex">
                 <li><a onclick="onGallery()" href="" class="flex">Gallery</a></li>
                 <li><a href="" class="flex">About</a></li>
             </ul>
-
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
         </div>
+
     </header>
 
     <div class="main-content">
 
-        <section class="editor display-none flex">
+        <div class="editor display-none flex">
             
             <div class="canvas-container">
-                <canvas id="canvas" height="500" width="500"></canvas>
+                <canvas id="canvas" height="450" width="450"></canvas>
             </div>
 
             <div class="meme-editor">
@@ -44,23 +47,19 @@
                     <button class="decrease-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('decrease')" src="ICONS/decrease-font-icon.png" alt=""></button>
                     <button class="increase-btn"><img class="cursor-pointer" onclick="onDecreaseIncrease('increase')" src="ICONS/increase-font-icon.png" alt=""></button>
                     <div class="download">
-                        <a class="downloadLink" href="#" onclick="downloadCanvas(this)" download="Meme.jpg">Download</a>
+                        <a class="downloadLink" href="#" onclick="onDownloadCanvas(this)" download="Meme.jpg">Download</a>
                     </div>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
 
-        <section class="image-gallery main-container">
-
+        <div class="image-gallery main-container">
             <div class="img-content"></div>
-
-            
-
-        </section>
+        </div>
 
     </div>
 

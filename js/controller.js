@@ -71,7 +71,7 @@ function onAddBorder() {
     var txt = currMeme.txt
     var width = currMeme.size * txt.length
     var xStart = x - (width / 2)
-    var yStart = y - height + 5
+    var yStart = y - height + 6
     gCtx.beginPath()
     gCtx.strokeStyle = 'black'
     gCtx.rect(xStart, yStart, width, height)
@@ -137,8 +137,12 @@ function onDeleteLine() {
 }
 
 
-function downloadCanvas(elLink) {
+function onDownloadCanvas(elLink) {
     randerCanvasForDownload()
+    download(elLink)
+}
+
+function download(elLink){
     const data = gElCanvas.toDataURL();
     elLink.href = data;
 }
@@ -152,4 +156,8 @@ function randerCanvasForDownload() {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
         renderAlltxt()
     }
+}
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
 }

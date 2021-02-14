@@ -25,8 +25,8 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
-        { txt: '', size: 45, align: 'center', color: 'white', x: 250, y: 70 },
-        { txt: '', size: 45, align: 'center', color: 'white', x: 250, y: 455 }
+        { txt: '', size: 45, align: 'center', color: 'white', x: 225, y: 70 },
+        { txt: '', size: 45, align: 'center', color: 'white', x: 225, y: 355 }
     ]
 }
 
